@@ -5,13 +5,13 @@ def word_break(s, word_dict)
         return false
     end
     sol = []
+
     sol << -1
     (0..length-1).each do |i|
-        print sol.reverse
-        for j in sol.reverse
-            if word_dict.include? s[j+1..i]
+        (sol.length-1).downto(0) do |j|
+            if word_dict.include? s[j..i]
+
                 sol << i
-               
                 break
             end
         end
