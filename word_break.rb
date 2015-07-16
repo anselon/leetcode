@@ -1,24 +1,23 @@
 def word_break(s, word_dict)
     #parse s
-    pos_word = ''
-    solution = Array.new
-    len_solution = 0
-    
-    sol = word_break(s, word_dict) + word_break(s[i-1], word_dict)
-    s.chars.each_with_index do |char, idx|
-        #with each additional char
-        pos_word += char
-        
-        #check if this possible word is in the dict
-        if word_dict.include? pos_word
-            solution << pos_word
-            len_solution += pos_word.length
-            pos_word = ''
+    length = s.length
+    if length == 0 
+        return false
+    end
+    sol = []
+    sol << -1
+    (0..length-1).each do |i|
+        print sol.reverse
+        for j in sol.reverse
+            if word_dict.include? s[j+1..i]
+                sol << i
+               
+                break
+            end
         end
     end
-    print solution
-    return len_solution == s.length
-        
-        
+    print sol
+    return sol.include? length-1
+
 end
-print word_break("aaa aaaaa", ["aaaaa","aaa"])
+print word_break("aaaaaaaa", ["aaaaa","aaa"])
