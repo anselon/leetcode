@@ -1,0 +1,8 @@
+REACTO
+
+repeat the question 
+examples
+approach (describe it)
+code 
+test - write your own tests and start with simple cases
+optimize
